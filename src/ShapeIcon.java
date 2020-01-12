@@ -46,5 +46,12 @@ public class ShapeIcon implements Icon
         // has draw method since it implements MoveableShape
     }
 
+    public void setIconWidth(int wid) {
+        width = wid;
+    }
+
+    public void setIconHeight(int hig) {
+        height = hig;
+    }
 }
 

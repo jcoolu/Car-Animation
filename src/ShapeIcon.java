@@ -1,11 +1,15 @@
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 /**
 An icon that contains a moveable shape.
  */
-public class ShapeIcon implements Icon
+public class ShapeIcon extends JPanel implements Icon
 {
     private int width;
     private int height;
@@ -38,7 +42,20 @@ public class ShapeIcon implements Icon
 
     public void paintIcon(Component c, Graphics g, int x, int y)
     {
+        URL resource = getClass().getResource("road.png");
+        BufferedImage image = null;
+        try {
+            image = ImageIO.read(resource);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        super.paintComponent(g);
+        int displacement = 0;
+        for(int j = 0; j < AnimationTester.getLength()/720 + 1; j++) {
+            g.drawImage(image, 0, displacement * 720, 720, 720, this);
+        displacement++;
+    }
         Graphics2D g2 = (Graphics2D) g;
         for(int i =0; i < cars.size(); i++) 
             cars.get(i).draw(g2); 

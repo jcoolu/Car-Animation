@@ -1,8 +1,12 @@
 import java.awt.*;
-import java.awt.event.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.*;
-import java.awt.Color;
 import javax.swing.Timer;
 
 /**
@@ -14,6 +18,8 @@ public class AnimationTester
     private static int width = 720;
     private static int height = 720;
     private static final int CAR_WIDTH = 100;
+    private static BufferedImage image;
+    private static int length;
 
     public static void main(String[] args)
     {
@@ -41,8 +47,6 @@ public class AnimationTester
         if(count != -1) {
             Color color;//color of each car
 
-            int length = 720;
-
             // assign a color to each car and creates a car (restricted to how many cars entered by user)
             int num = 0;
             for (int i = 0; i < count; i++) {
@@ -57,6 +61,15 @@ public class AnimationTester
                 }
                 length = i * (CAR_WIDTH / 2) + 10;
             }
+
+            URL rs = AnimationTester.class.getResource("road.png");
+            try {
+                image = ImageIO.read(rs);
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
             ShapeIcon icon = new ShapeIcon(carList,
                     width, height);
@@ -95,6 +108,7 @@ public class AnimationTester
                     });
             t.start();
 
+            System.out.println(length);
             frame.setLayout(new FlowLayout());
             frame.setResizable(false);
             frame.add(scrPane);
@@ -104,4 +118,14 @@ public class AnimationTester
             //   MoveableShape test = new MoveableShape();
         }
     }
+
+    public static int getLength() {
+        return length;
+    }
+/*
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.drawImage(image, 720, 720, this);
+    }
+*/
 }//end of class        

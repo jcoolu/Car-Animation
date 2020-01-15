@@ -40,8 +40,16 @@ public class ShapeIcon extends JPanel implements Icon
         return height;
     }
 
+    /**
+     * Paints icons (cars) and road.
+     * @param c
+     * @param g
+     * @param x
+     * @param y
+     */
     public void paintIcon(Component c, Graphics g, int x, int y)
     {
+        // draws image background
         URL resource = getClass().getResource("road.png");
         BufferedImage image = null;
         try {
@@ -63,10 +71,18 @@ public class ShapeIcon extends JPanel implements Icon
         // has draw method since it implements MoveableShape
     }
 
+    /**
+     * Sets Icon width
+     * @param wid - width
+     */
     public void setIconWidth(int wid) {
         width = wid;
     }
 
+    /**
+     * Sets the icon height
+     * @param hig - height
+     */
     public void setIconHeight(int hig) {
         height = hig;
     }

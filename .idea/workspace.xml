@@ -5,8 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Car-Animation/AnimationTester$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Car-Animation/AnimationTester$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Car-Animation/AnimationTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Car-Animation/AnimationTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Car-Animation/ShapeIcon.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Car-Animation/ShapeIcon.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Car-Animation/CarShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Car-Animation/CarShape.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/AnimationTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AnimationTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShapeIcon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShapeIcon.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -1,28 +1,30 @@
 import java.awt.*;
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 import java.util.*;
 import javax.swing.Timer;
 
 /**
 This program implements an animation that moves
-a car shape. User enters how many cars will appear on screen
+a car shape. User enters how many cars will appear on screen.
  */
 public class AnimationTester
 {
-    private static int width = 720;
-    private static int height = 720;
-    private static final int CAR_WIDTH = 100;
-    private static BufferedImage image;
-    private static int length;
+    private static final int CAR_WIDTH = 100; // car's width
+    private static int length; // length of screen (how much space all cars will take to adjust screen accordingly)
 
+    /**
+     * Main method - starts program. Asks user how many cars should be shown.
+     * Window is scrollable and all cars are shown.
+     *
+     * @param args
+     */
     public static void main(String[] args)
     {
+        int height = 720; // height of window
+        int width = 720; // width of window
+
         JFrame frame = new JFrame(); // frame/window
 
         Scanner scan = new Scanner(System.in); // scanner used in reading input from user
@@ -30,11 +32,13 @@ public class AnimationTester
         Random rand = new Random(255); // generates random number from 0 to 255
 
         ArrayList<CarShape> carList = new ArrayList<CarShape>(); // ArrayList of car shapes
-        System.out.println("How many cars would you like shown?");
-        int count = -1;
+
+        // Asks how many cars will be shown on screen (valid:  all positive numbers (#'s>=0)
+        int count = -1; // to check if input from user is valid/invalid
         try {
             count = Integer.parseInt(JOptionPane.showInputDialog(frame, "How many cars would you like shown?", null));
-            if(count <0) {
+            // if number is negative throw exception
+            if(count < 0) {
                 throw new NumberFormatException();
             }
         }
@@ -45,7 +49,7 @@ public class AnimationTester
         }
 
         if(count != -1) {
-            Color color;//color of each car
+            Color color; // color of each car
 
             // assign a color to each car and creates a car (restricted to how many cars entered by user)
             int num = 0;
@@ -62,21 +66,12 @@ public class AnimationTester
                 length = i * (CAR_WIDTH / 2) + 10;
             }
 
-            URL rs = AnimationTester.class.getResource("road.png");
-            try {
-                image = ImageIO.read(rs);
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-
-
             ShapeIcon icon = new ShapeIcon(carList,
                     width, height);
 
             final JLabel label = new JLabel(icon);
             label.setPreferredSize(new Dimension(width, length));
-// Now, you can add whatever you want to the container
+
             JScrollPane scrPane = new JScrollPane(label);
             scrPane.setPreferredSize(new Dimension(width, height));
             final int DELAY = 5;
@@ -108,7 +103,6 @@ public class AnimationTester
                     });
             t.start();
 
-            System.out.println(length);
             frame.setLayout(new FlowLayout());
             frame.setResizable(false);
             frame.add(scrPane);
@@ -119,13 +113,12 @@ public class AnimationTester
         }
     }
 
+    /**
+     * Returns length of screen.
+     * @return length - Integer
+     */
     public static int getLength() {
         return length;
     }
-/*
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.drawImage(image, 720, 720, this);
-    }
-*/
+
 }//end of class        
